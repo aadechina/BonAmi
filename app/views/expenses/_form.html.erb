@@ -23,7 +23,20 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :expense_user_id %>
+    <%= form.select(
+      :user_id,
+      options_for_select(@users.map { |e| [e.name, e.id] }))
+    %>
+  </div>
+
+  <div class="field">
+  <%= form.label :users %>
+    <%= form.select(
+      :users,
+      options_for_select(@users.map { |e| [e.name, e.id] }),
+      {},
+      { :multiple => true})
+    %>
   </div>
 
   <div class="actions">
